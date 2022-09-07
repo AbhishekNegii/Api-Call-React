@@ -2,6 +2,8 @@ import React, {  useEffect,useState } from "react";
 
 import MoviesList from "./components/MoviesList";
 import "./App.css";
+import AddMovies from "./components/AddMovies";
+
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -51,9 +53,10 @@ function App() {
   useEffect(()=>{    
       fetchMovieHandler()   
    },[fetchMovieHandler])
-   
+
   return (
     <React.Fragment>
+      <AddMovies/>
       <section>
         {!error && <button onClick={fetchMovieHandler}>Fetch Movies</button>}
         {error && <button >Cancel</button>}
